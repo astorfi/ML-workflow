@@ -1,0 +1,4 @@
+loguru==0.5.3
+# InfluxDBClient
+influxdb
+confluent-kafka==1.6.1
