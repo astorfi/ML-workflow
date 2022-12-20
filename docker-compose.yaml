@@ -38,6 +38,7 @@ services:
 
   python-model-service1:
     container_name: python-service-1
+    platform: linux/amd64
     depends_on:
       - kafka
     build:
@@ -51,6 +52,7 @@ services:
 
   python-model-service2:
     container_name: python-service-2
+    platform: linux/amd64
     depends_on:
       - kafka
     build:
@@ -111,6 +113,7 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:latest
+    platform: linux/amd64
     container_name: kafka
     restart: always
     depends_on:
@@ -135,6 +138,7 @@ services:
 
   kafka-workers:
     container_name: kafka-workers
+    platform: linux/amd64
     depends_on:
       - kafka
     build: ./workers
