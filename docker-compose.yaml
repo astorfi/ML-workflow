@@ -38,7 +38,6 @@ services:
 
   python-model-service1:
     container_name: python-service-1
-    platform: linux/amd64
     depends_on:
       - kafka
     build:
@@ -52,7 +51,6 @@ services:
 
   python-model-service2:
     container_name: python-service-2
-    platform: linux/amd64
     depends_on:
       - kafka
     build:
@@ -113,7 +111,6 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:latest
-    platform: linux/amd64
     container_name: kafka
     restart: always
     depends_on:
@@ -138,7 +135,6 @@ services:
 
   kafka-workers:
     container_name: kafka-workers
-    platform: linux/amd64
     depends_on:
       - kafka
     build: ./workers
@@ -174,7 +170,6 @@ services:
   minio:
     container_name: minio
     image: minio/minio
-    platform: linux/amd64
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -200,7 +195,6 @@ services:
   chronograf:
     container_name: chronograf
     image: chronograf:1.8.4-alpine
-    platform: linux/amd64
     depends_on:
       - influxdb
     user: "0"
@@ -213,7 +207,6 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana:6.3.6
-    platform: linux/amd64
     depends_on:
       - influxdb
       - prometheus
