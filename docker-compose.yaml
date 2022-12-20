@@ -170,6 +170,7 @@ services:
   minio:
     container_name: minio
     image: minio/minio
+    platform: linux/amd64
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -195,6 +196,7 @@ services:
   chronograf:
     container_name: chronograf
     image: chronograf:1.8.4-alpine
+    platform: linux/amd64
     depends_on:
       - influxdb
     user: "0"
@@ -207,6 +209,7 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana:6.3.6
+    platform: linux/amd64
     depends_on:
       - influxdb
       - prometheus
